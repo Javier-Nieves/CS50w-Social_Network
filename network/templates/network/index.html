@@ -45,12 +45,14 @@
     {# profile view #}
     <div id="profile-view" style="display: none;">
 
-        <div id="followers-counter"></div>
-        <div id="follow-btn-container">
-            <form id="fol-form" action="" method="post">
-                {% csrf_token %}
-                <button class="follow-btn" id="follow-btn" name="unfol-btn" value="smt">Unfollow</button>
-            </form>
+        <div class="row-btns">
+            <div id="followers-counter" class="page-text"></div>
+            <div id="follow-btn-container">
+                <form id="fol-form" action="" method="post">
+                    {% csrf_token %}
+                    <button class="follow-btn" id="follow-btn" name="unfol-btn" value="smt">Unfollow</button>
+                </form>
+            </div>
         </div>
 
         {% for post in selectedPosts reversed %}

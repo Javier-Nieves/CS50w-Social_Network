@@ -238,7 +238,7 @@ function profile_view(profile) {
             document.querySelector("#follow-btn").innerHTML = "Unfollow";
           }
         }
-        document.querySelector("#followers-counter").innerHTML = `Followers: <span id="fol-change">${post.followers}</span> Following: ${post.following}`;
+        document.querySelector("#followers-counter").innerHTML = `Followers: <span id="fol-change">${post.followers}</span>&nbsp Following: ${post.following}`;
         show_post(item);
       });
     });

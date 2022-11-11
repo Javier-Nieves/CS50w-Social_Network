@@ -40,14 +40,27 @@ a, .page-text {
     border: none;
     color: rgb(151, 5, 5);
 }
+.follow-btn {
+    background-color: rgb(151, 5, 5);
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: Apple Chancery, cursive;
+    padding: 5px;
+    margin-left: 15px;
+}
 .nav-link {
     border: none;
     background-color: transparent;
     font-family: Serif;
     font-size: 17px;
 }
-.nav-link:focus {
+.nav-link:focus, .follow-btn:focus {
     outline:0;
+}
+.follow-btn:hover {
+    background-color: rgb(201, 2, 2);
 }
 
 .new-post {
@@ -178,6 +191,7 @@ a, .page-text {
 .row-btns {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 5px;
     padding-top: 5px;
 }
