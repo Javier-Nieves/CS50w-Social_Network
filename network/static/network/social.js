@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         look.parentElement.querySelector(".post-text").style.display = 'None';
         look.parentElement.querySelector(".post-edit-btn").style.display = 'None';
         look.parentElement.querySelector(".edit-container").style.display = 'block';
-        look.parentElement.querySelector(".edit-container").innerHTML = `<textarea class="form-control" id="compose-body" autofocus required>${post4.text}</textarea>`;
+        look.parentElement.querySelector(".edit-container").innerHTML = `<textarea class="form-control" id="compose-body" autofocus required="required">${post4.text}</textarea>`;
         look.parentElement.querySelector(".save-btn").style.display = 'block';
       }
 

@@ -114,7 +114,8 @@ def likePOST(request, post_id):
         
         # if post is beeing edited 
         if data.get("text") != 0:
-            post4.text = data["text"]
+            if request.user.username == post4.autor:
+                post4.text = data["text"]
 
         post4.save()
         return HttpResponse(status=204)  # 204 - No content. Site shouldn't navigate to URL
