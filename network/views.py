@@ -114,7 +114,7 @@ def likePOST(request, post_id):
         
         # if post is beeing edited 
         if data.get("text") != 0:
-            if request.user.username == post4.autor:
+            if request.user == post4.autor:
                 post4.text = data["text"]
 
         post4.save()
