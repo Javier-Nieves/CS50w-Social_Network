@@ -1,0 +1,90 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <h1 id="title">All Posts</h1>
+
+    {% if user.is_authenticated %}
+    <div class="create-post" id="create-post-box">
+        <form action="{% url 'indexPOST' %}" method="post" >
+            {% csrf_token %}
+            <input class="simple-input" name="image-url" type="text" placeholder="Image Url" style="display:none;">
+            <textarea class="new-post" name="new-post" id="new-post-id" placeholder="What's new?" required="required" maxlength="800"></textarea>
+            <button class="post-button" name="post-btn" id="postBtn" value="clicked">Post</button>
+        </form>
+    </div>
+    {% endif %}
+
+    <div id="all-posts">
+        {% for post in page_obj %}
+        <div class="post-holder" id="normal-post-holder">
+            {# comment #}
+            <button class="invis-btn profile-btn" value="{{post.autor}}">{{post.autor}}</button>
+            <input type="hidden" class="secret-number" disabled value="{{post.id}}">
+            <div class="post-date"> {{post.date}} </div> 
+            <div class="edit-container"></div>
+            <div class="post-text"> {{post.text}} </div>
+            <span class="row-btns">
+                {% if user in post.likes.all %}
+                <button class="post-like" name="like-btn" value="{{post.likes.count}}">&#10084 {{post.likes.count}}</button>
+                {% else %}
+                <button class="post-like" name="like-btn" value="{{post.likes.count}}">&#9829 {{post.likes.count}}</button>
+                {% endif %}
+                {% if user == post.autor %}
+                <button class="save-btn" style="display:none;">&#128190 Save</button>
+                <button class="post-edit-btn">&#9998 edit</button>
+                <button class="post-delete-btn">&#215 delete</button>
+                {% endif%}
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    {# profile view #}
+    <div id="profile-view" style="display: none;">
+
+        <div id="followers-counter"></div>
+        <div id="follow-btn-container">
+            <form id="fol-form" action="" method="post">
+                {% csrf_token %}
+                <button class="follow-btn" id="follow-btn" name="unfol-btn" value="smt">Unfollow</button>
+            </form>
+        </div>
+
+        {% for post in selectedPosts reversed %}
+        <div class="post-holder">
+            <button class="invis-btn profile-btn">{{post.autor}}</button>
+            <div class="post-date"> {{post.date}} </div> 
+            <div class="post-text"> {{post.text}} </div>
+            <button class="post-like" name="like-btn">&#10084 {{post.likes.count}}</button>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    {# followed view #}
+    <div id="follow-post-holder" style="display: none;"></div>
+
+
+    <div class="pagination" id="pages">
+        <span class="step-links row-btns">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                <div class="page-text"> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</div>
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+
+{% endblock %}

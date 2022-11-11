@@ -1,0 +1,183 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("coffee.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(255,255,255,0.95);
+    background-blend-mode: lighten;
+    padding: 10px;
+}
+h1 {
+    font-family: 'Snell Roundhand', cursive, Serif;
+    font-size: 50px;
+    font-weight: 600;
+}
+h2 {
+    font-family: Serif;
+}
+
+a, .page-text {
+ color: black;
+ text-decoration: none;
+ font-size: 20px;
+ font-family: Serif;
+}
+
+#brand {
+    font-family: 'Snell Roundhand', cursive, Serif;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 13px 0 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.invis-btn {
+    background-color: transparent;
+    border: none;
+    color: rgb(151, 5, 5);
+}
+.nav-link {
+    border: none;
+    background-color: transparent;
+    font-family: Serif;
+    font-size: 17px;
+}
+.nav-link:focus {
+    outline:0;
+}
+
+.new-post {
+    position: relative;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 8px 12px 8px 12px;
+    background-color: rgb(250, 249, 215);
+    font-family: Serif;
+    width: 45vw;
+    font-size: 20px;
+    margin-bottom: -5px;
+    z-index: 10;
+}
+
+@keyframes appear {
+    from {
+        right: 410px;
+    }
+    to {
+        right: 310px;
+    }
+}
+
+.post-button {
+    position: absolute;
+    animation-name: appear;
+    animation-duration:  1.8s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+    font-size: 25px;
+    font-family: Apple Chancery, cursive;
+    border: none;
+    margin-top: 10px;
+    width: 100px;
+    background: url(ribbon.jpeg);
+    padding: 9px;
+    color: wheat;
+}
+.post-button:focus {
+    outline:0;
+}
+
+.profile-btn {
+    font-family: Apple Chancery, cursive;
+    font-size: 25px;
+    padding-left: 5px;
+    padding-top: 0px;
+}
+
+.post-line-container {
+    display: flex;
+    flex-direction: row;
+}
+@keyframes hide {
+    0% {
+        opacity: 1;
+        height: 100%;
+        padding: 10px;
+        line-height: normal;
+    }
+    75% {
+        opacity: 0;
+        height: 0%;
+        padding: 10px;
+        line-height: normal;
+    }
+    100% {
+        opacity: 0;
+        height: 0%;
+        padding: 0px;
+        margin-top: 0px;
+        line-height: 0%;
+    }
+}
+.post-holder {
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 45vw;
+    line-height: normal;
+    background-color: rgba(143, 199, 20, 0.5);
+    animation-name: hide;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+.post-date {
+    color: grey;
+    font-size: 10px;
+    padding-left: 5px;
+}
+.post-text, .form-control {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 8px 12px 8px 12px;
+    line-height: normal;
+    background-color: rgba(254, 254, 254, 0.704);
+    font-family: Serif;
+    animation-name: hide;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+.post-like, .post-edit-btn, .save-btn, .post-delete-btn {
+    font-size: 12px;
+    background-color: rgba(224, 228, 219, 0.5);
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.form-control {
+    background-color: rgb(254, 254, 254);
+    font-size: 20px;
+}
+.form-control:focus, .post-like:focus, .post-edit-btn:focus, .save-btn:focus, .new-post:focus {
+        outline: none !important;
+        border:1px solid rgb(151, 5, 5);
+        box-shadow: 0 0 10px #a1b1c3;
+}
+
+.profile {
+    text-decoration: none;
+}
+
+.row-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding-top: 5px;
+}
