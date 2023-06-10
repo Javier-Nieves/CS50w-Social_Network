@@ -54,15 +54,6 @@
                 </form>
             </div>
         </div>
-
-        {% for post in selectedPosts reversed %}
-        <div class="post-holder">
-            <button class="invis-btn profile-btn">{{post.autor}}</button>
-            <div class="post-date"> {{post.date}} </div> 
-            <div class="post-text"> {{post.text}} </div>
-            <button class="post-like" name="like-btn">&#10084 {{post.likes.count}}</button>
-        </div>
-        {% endfor %}
     </div>
 
 
